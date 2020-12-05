@@ -1,8 +1,12 @@
 import React from 'react';
+import Stars from './Stars';
 
 const Layout = (props) => {
 	return <>
-		{props.children}
+		<Stars />
+		<div>
+			{props.children}
+		</div>
 	</>
 }
 
