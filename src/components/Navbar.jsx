@@ -1,14 +1,15 @@
 import React, { useEffect, useRef } from 'react';
+import styles from '../../public/css/styles.module.css'
 
 const Navbar = ({ onIconLoad }) => {
 	const iconRef = useRef(null);
 	useEffect(() => {
 		onIconLoad && onIconLoad(iconRef);
 	}, [iconRef]);
-	return <div id="navbar">
+	return <div className={styles.navbar}>
 		<div className="container d-flex justify-content-between p-2">
-			<a href="/" className="logo">
-				<svg ref={iconRef} className="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2000 2000" style={{ enableBackground: "new 0 0 2000 2000" }} xmlSpace="preserve">
+			<a href="/" className={styles.logo}>
+				<svg ref={iconRef} className={styles.logo} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2000 2000" style={{ enableBackground: "new 0 0 2000 2000" }} xmlSpace="preserve">
 					<defs>
 						<linearGradient id="logoGTGradient" x1="50%" y1="0%" x2="50%" y2="100%" > 
 							<stop offset="0%" stopColor="#3b68ff">
@@ -29,8 +30,8 @@ const Navbar = ({ onIconLoad }) => {
 				<a href="https://github.com/gauthier-th" target="_blank" style={{ top: 0 }}>
 					<img className="mr-3" src="/img/github-mark.svg" style={{ height: 32 }} />
 				</a>
-				<div className="contact-container">
-					<a className="contact" href="mailto:mail@gauthier-thomas.dev">Contact</a>
+				<div className={styles.contactContainer}>
+					<a className={styles.contact} href="mailto:mail@gauthier-thomas.dev">Contact</a>
 				</div>
 			</div>
 		</div>

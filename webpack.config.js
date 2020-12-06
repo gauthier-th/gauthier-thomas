@@ -24,10 +24,28 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
+							url: false,
+							importLoaders: 1,
+							modules: true
+						}
+					}
+				],
+				include: /\.module\.css$/
+			},
+			{
+				test: /\.css$/,
+				use: [
+					{
+						loader: 'style-loader'
+					},
+					{
+						loader: 'css-loader',
+						options: {
 							url: false
 						}
 					}
-				]
+				],
+				exclude: /\.module\.css$/
 			}
 		]
 	},

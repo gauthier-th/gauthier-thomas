@@ -1,0 +1,42 @@
+div#header-content {
+	top: 0;
+	z-index: -1;
+}
+div#header-content > div {
+	margin-top: 70px;
+	height: calc(100vh - 70px);
+	color: #eee;
+}
+div#header-content h1, div#about-content h1 {
+	font-weight: 100;
+}
+
+div#header-content .more, div#about-content .more {
+	user-select: none;
+	opacity: 0;
+	transform: translateY(16px);
+	transition: opacity ease .3s, transform ease .3s;
+	transition-delay: .5s, .5s;
+}
+div#header-content.visible .more, div#about-content.visible .more {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0;
+}
+div#header-content .more a, div#about-content .more a {
+	transform: translateY(0);
+	transition: transform ease .15s;
+}
+div#header-content .more a:hover, div#about-content .more a:hover {
+	transform: translateY(-4px);
+}
+div#header-content .more a, div#header-content .more a:hover, div#header-content .more a:active, div#about-content .more a, div#about-content .more a:hover, div#about-content .more a:active {
+	color: #eee;
+	text-decoration: none;
+}
+div#header-content .more h3, div#about-content .more h3 {
+	font-weight: 100;
+}
+div#header-content .more img, div#about-content .more img {
+	height: 2rem;
+}

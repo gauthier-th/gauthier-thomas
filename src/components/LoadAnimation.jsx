@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import cx from 'classnames';
+import styles from '../../public/css/styles.module.css'
 
 const LoadAnimation = ({ navbarIconEl }) => {
 	const bgLeft = useRef(null);
@@ -11,10 +13,10 @@ const LoadAnimation = ({ navbarIconEl }) => {
 	}, [bgLeft, bgRight, loader, logo, navbarIconEl]);
 
 	return <>
-		<div ref={bgLeft} className="gt-loader-background left"></div>
-		<div ref={bgRight} className="gt-loader-background right"></div>
-		<div ref={loader} id="gt-loader">
-			<svg ref={logo} className="logo gt-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2000 2000" style={{ enableBackground: "new 0 0 2000 2000" }} xmlSpace="preserve">
+		<div ref={bgLeft} className={cx(styles.gtLoaderBackground, styles.left)}></div>
+		<div ref={bgRight} className={cx(styles.gtLoaderBackground, styles.right)}></div>
+		<div ref={loader} className={styles.gtLoader}>
+			<svg ref={logo} className={cx(styles.logo, styles.gtLogo)} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2000 2000" style={{ enableBackground: "new 0 0 2000 2000" }} xmlSpace="preserve">
 				<defs>
 					<linearGradient id="logoGTGradient" x1="50%" y1="0%" x2="50%" y2="100%" > 
 						<stop offset="0%" stopColor="#3b68ff">
@@ -37,14 +39,14 @@ const LoadAnimation = ({ navbarIconEl }) => {
 
 function moveGTLogo(bgLeft, bgRight, loader, logo, navbarLogo) {
 	setTimeout(function() {
-		$(bgLeft).addClass('visible');
-		$(bgRight).addClass('visible');
+		$(bgLeft).addClass(styles.visible);
+		$(bgRight).addClass(styles.visible);
 		setTimeout(function() {
-			$(bgLeft).addClass('hide');
-			$(bgRight).addClass('hide');
-			$(logo).addClass('move');
+			$(bgLeft).hide();
+			$(bgRight).hide();
+			$(logo).addClass(styles.move);
 			$(logo).animate({ top: $(navbarLogo).position().top, left: $(navbarLogo).position().left, height: 100 }, 500, function() {
-				$(navbarLogo).addClass('visible');
+				$(navbarLogo).addClass(styles.visible);
 				$(loader).delay(100).hide();
 			});
 		}, 500);

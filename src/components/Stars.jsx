@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Random, mobileCheck } from '../../utils';
+import cx from 'classnames';
+import styles from '../../public/css/styles.module.css'
 
 const Stars = () => {
 	const starsEl = useRef(null);
@@ -20,11 +22,11 @@ const Stars = () => {
  * @param {HTMLElement} container 
  */
 function genShootingStar(container) {
-	container.classList.add("stars-animation-container");
+	container.classList.add(styles.starsAnimationContainer);
 	var starContainer = document.createElement("div");
-	starContainer.classList.add("shooting-star-container");
+	starContainer.classList.add(styles.shootingStarContainer);
 	var star = document.createElement("div");
-	star.classList.add("shooting-star");
+	star.classList.add(styles.shootingStar);
 	starContainer.appendChild(star);
 	var showTime = (Random(2, 12) + Random(2, 20)) / 4;
 	starContainer.style.animationDuration = showTime + "s";

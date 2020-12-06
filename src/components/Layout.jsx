@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import cx from 'classnames';
+import styles from '../../public/css/styles.module.css'
 import Stars from './Stars';
 import Navbar from './Navbar';
 import LoadAnimation from './LoadAnimation';
@@ -9,7 +11,7 @@ const Layout = (props) => {
 		<Stars />
 		<Navbar onIconLoad={setNavbarIconEl} />
 		<LoadAnimation navbarIconEl={navbarIconEl} />
-		<div id="content" className="container">
+		<div className={cx(styles.content, "container")}>
 			{props.children}
 		</div>
 	</>
