@@ -15,6 +15,87 @@
 
 
 
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+#navbar {
+	width: 100%;
+	color: #ddd;
+	z-index: 999;
+}
+#navbar a {
+	color: #ddd;
+}
+#navbar a.logo {
+	margin: -0.5rem;
+}
+#navbar a:not(.logo) {
+	position: relative;
+	top: 16px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+
+#navbar .contact-container {
+	position: relative;
+	display: inline-block;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	padding: 5px 0;
+}
+#navbar a.contact {
+	top: 0;
+	border: none;
+	color: #eee;
+	padding: 8px;
+	background-color: transparent;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: color .4s ease;
+}
+#navbar a.contact::after {
+	content: "";
+	color: #000;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	border-radius: 2px;
+	background-color: #eee;
+	z-index: -1;
+	transition: width .4s ease;
+}
+#navbar a.contact:hover {
+	color: #111;
+}
+#navbar a.contact:hover::after {
+	width: 100%;
+}
+
+
+#navbar a:hover {
+	text-decoration: none;
+	color: #aaa;
+}
+#navbar a:active {
+	text-decoration: none;
+	color: #f33535;
+}
+#navbar a.logo .logo {
+	visibility: hidden;
+	height: 100px;
+}
+#navbar a.logo .logo.visible {
+	visibility: visible;
+	animation: 1s cubic-bezier(.25,.5,0,1) 0s 1 GTBump;
+}
+
+
+
 .stars-animation-container {
 	position: fixed;
 	top: 0;
@@ -136,4 +217,100 @@
 	100% {
 		width: 100px;
 	}
+}
+
+
+
+.gt-loader-background {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	z-index: 1000;
+	/* background-color: rgb(95, 210, 255); */
+}
+.gt-loader-background.left {
+	transition: left .5s cubic-bezier(.5,0,.8,-.02), right .5s cubic-bezier(.5,0,.8,-.02);
+	border-right: 70vw solid transparent;
+	border-top: 165vh solid rgb(122,95,255);
+	width: 0;
+	left: 0;
+}
+.gt-loader-background.right {
+	transition: left .5s cubic-bezier(.5,0,.8,-.02), right .5s cubic-bezier(.5,0,.8,-.02);
+	border-left: 70vw solid transparent;
+	border-bottom: 165vh solid rgb(95, 210, 255);
+	width: 100vw;
+	right: 0;
+}
+.gt-loader-background.left.visible {
+	left: -100vw;
+}
+.gt-loader-background.right.visible {
+	right: -100vw;
+}
+.gt-loader-background.hide {
+	display: none;
+}
+
+#gt-loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1001;
+	/* transition: background-color .5s ease; */
+}
+#gt-loader.hide {
+	/* background-color: rgba(221, 221, 221, 0);
+	transition: background-color .5s ease;
+	animation: hideElement 0s ease .5s forwards; */
+}
+
+.gt-logo {
+	position: fixed;
+	top: calc(50% - 150px);
+	left: calc(50% - 150px);
+	/* transform: translate(-50%, -50%); */
+	height: 300px;
+	max-width: 70vw;
+	width: auto;
+	/*margin: 100px 0 50px 0;*/
+	animation: 1s cubic-bezier(.25,.5,0,1) 0s 1 scaleGT;
+	user-select: none;
+	-webkit-user-select: none;
+	transition: transform ease .5s;
+}
+.gt-logo.move {
+	transform: translate(0, 0);
+	transition-delay: .02s;
+	transition: transform ease .45s;
+}
+
+@keyframes scaleGT {
+	0% {
+		transform: scale(.6) rotate(-30deg);
+	}
+	100% {
+		transform: scale(1) rotate(0deg);
+	}
+}
+@keyframes GTBump {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	80% {
+		transform: scale(0.95);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+#content {
+	color: #eee;
 }
