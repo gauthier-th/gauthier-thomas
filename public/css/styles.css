@@ -1,3 +1,6 @@
+:root {
+	height: 100%;
+}
 @media (max-width: 768px) {
 	:root {
 		font-size: 90%;
@@ -9,14 +12,11 @@
 	}
 }
 
-:root {
-	height: 100%;
-}
-
 
 
 body {
 	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
 }
 
 #navbar {

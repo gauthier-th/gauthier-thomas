@@ -9,7 +9,7 @@ const Layout = (props) => {
 		<Stars />
 		<Navbar onIconLoad={setNavbarIconEl} />
 		<LoadAnimation navbarIconEl={navbarIconEl} />
-		<div id="content">
+		<div id="content" className="container">
 			{props.children}
 		</div>
 	</>
