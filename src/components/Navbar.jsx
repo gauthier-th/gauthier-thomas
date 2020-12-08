@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from '../../public/css/styles.module.css'
 
 const Navbar = ({ onIconLoad }) => {
@@ -8,7 +9,7 @@ const Navbar = ({ onIconLoad }) => {
 	}, [iconRef]);
 	return <div className={styles.navbar}>
 		<div className="container d-flex justify-content-between p-2">
-			<a href="/" className={styles.logo}>
+			<NavLink to="/" className={styles.logo}>
 				<svg ref={iconRef} className={styles.logo} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2000 2000" style={{ enableBackground: "new 0 0 2000 2000" }} xmlSpace="preserve">
 					<defs>
 						<linearGradient id="logoGTGradient" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -25,7 +26,7 @@ const Navbar = ({ onIconLoad }) => {
 					<polygon style={{ fill: "url(#logoGTGradient)" }} points="887.4,1111.5 952.5,998.1 951.9,998.1 821.9,998.1 783.4,931.5 748.1,870.2 604.7,621.9 565.8,554.6 530.8,494 530.8,494 1074.8,494 1217.6,245.7 100.7,245.7 100.8,245.7 100.7,245.7 168.3,362.7 172.5,370 243.8,494 244.1,494 678.5,1246.4 809.1,1246.4 809.8,1246.4 886.3,1113.3 "/>
 				</svg>
 				<div></div>
-			</a>
+			</NavLink>
 			<div className="items d-flex align-content-start align-items-center">
 				<a href="https://github.com/gauthier-th" target="_blank" style={{ top: 0 }}>
 					<img className="mr-3" src="/img/github-mark.svg" style={{ height: 32 }} />

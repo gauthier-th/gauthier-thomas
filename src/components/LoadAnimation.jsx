@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import cx from 'classnames';
 import styles from '../../public/css/styles.module.css'
 
-const LoadAnimation = ({ navbarIconEl }) => {
+const LoadAnimation = ({ navbarIconEl, onEnd }) => {
 	const bgLeft = useRef(null);
 	const bgRight = useRef(null);
 	const loader = useRef(null);
 	const logo = useRef(null);
 	useEffect(() => {
 		if (bgLeft && bgRight && loader && logo && navbarIconEl)
-			moveGTLogo(bgLeft.current, bgRight.current, loader.current, logo.current, navbarIconEl.current);
+			moveGTLogo(bgLeft.current, bgRight.current, loader.current, logo.current, navbarIconEl.current, onEnd);
 	}, [bgLeft, bgRight, loader, logo, navbarIconEl]);
 
 	return <>
@@ -37,7 +37,7 @@ const LoadAnimation = ({ navbarIconEl }) => {
 
 
 
-function moveGTLogo(bgLeft, bgRight, loader, logo, navbarLogo) {
+function moveGTLogo(bgLeft, bgRight, loader, logo, navbarLogo, onEnd) {
 	setTimeout(function() {
 		$(bgLeft).addClass(styles.visible);
 		$(bgRight).addClass(styles.visible);
@@ -46,6 +46,7 @@ function moveGTLogo(bgLeft, bgRight, loader, logo, navbarLogo) {
 			$(bgRight).hide();
 			$(logo).addClass(styles.move);
 			$(logo).animate({ top: $(navbarLogo).position().top, left: $(navbarLogo).position().left, height: 100 }, 500, function() {
+				onEnd && onEnd();
 				$(navbarLogo).addClass(styles.visible);
 				$(loader).delay(100).hide();
 			});

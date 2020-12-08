@@ -78,7 +78,7 @@ body {
 
 
 
-@keyframes :global(GTBump) {
+@keyframes GTBump {
 	0% {
 		transform: scale(1);
 	}
@@ -107,9 +107,14 @@ body {
 }
 .navbar a.logo .logo.visible {
 	visibility: visible;
-}
-.navbar a.logo .logo.visible :global {
-	animation: 1s cubic-bezier(.25,.5,0,1) 0s 1 GTBump;
+	animation-name: GTBump;
+	animation-duration: 1s;
+	animation-timing-function: cubic-bezier(0.25, 0.5, 0, 1);
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: none;
+	animation-play-state: running;
 }
 
 
@@ -119,7 +124,7 @@ body {
 	top: 0;
 	left: 0;
 	z-index: -1;
-	width: 100%;
+	width: 100vw;
 	height: 100%;
 	overflow: hidden;
 	background-image: url("/img/stars.svg");
@@ -137,7 +142,7 @@ body {
 	animation-timing-function: cubic-bezier(.17,.44,.27,.27);
 	animation-iteration-count: infinite;
 }
-.sshootingStar {
+.shootingStar {
 	width: 1px;
 	height: 1px;
 	background-color: white;
@@ -147,7 +152,7 @@ body {
 	animation-timing-function: ease;
 	animation-duration: 3.5s;
 }
-.sshootingStar::before {
+.shootingStar::before {
 	content: "";
 	position: absolute;
 	display: block;
@@ -163,7 +168,7 @@ body {
 	animation-timing-function: ease;
 	animation-duration: 2s;
 }
-.sshootingStar::after {
+.shootingStar::after {
 	content: "";
 	position: absolute;
 	display: block;
@@ -184,8 +189,8 @@ body {
 		left: -100px;
 	}
 	to {
-		top: calc(100vh);
-		left: calc(100vh);
+		top: calc(100vh + 50px);
+		left: calc(100vh + 50px);
 	}
 }
 @keyframes cometAnimation {
@@ -275,7 +280,7 @@ body {
 	z-index: 1001;
 }
 
-@keyframes :global(scaleGT) {
+@keyframes scaleGT {
 	0% {
 		transform: scale(.6) rotate(-30deg);
 	}
@@ -293,14 +298,33 @@ body {
 	user-select: none;
 	-webkit-user-select: none;
 	transition: transform ease .5s;
-}
-.gtLogo :global {
-	animation: 1s cubic-bezier(.25,.5,0,1) 0s 1 scaleGT;
+	animation-name: scaleGT;
+	animation-duration: 1s;
+	animation-timing-function: cubic-bezier(0.25, 0.5, 0, 1);
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: none;
+	animation-play-state: running;
 }
 .gtLogo.move {
 	transform: translate(0, 0);
 	transition-delay: .02s;
 	transition: transform ease .45s;
+}
+@media (max-width: 400px) {
+	.gtLogo {
+		top: calc(50% - 100px);
+		left: calc(50% - 100px);
+		height: 200px;
+	}
+}
+@media (max-width: 300px) {
+	.gtLogo {
+		top: calc(50% - 75px);
+		left: calc(50% - 75px);
+		height: 150px;
+	}
 }
 
 
