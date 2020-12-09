@@ -11,7 +11,8 @@ const Home = () => {
 		variants={pageVariants}
 		transition={pageTransition}
 	>
-		<h1>404 Not Found</h1>
+		<h1>Page not found</h1>
+		<span>Sorry, but this page does not exist.</span>
 	</motion.div>;
 }
 
