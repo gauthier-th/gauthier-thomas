@@ -1,7 +1,9 @@
+import React from 'react';
+import { motion } from "framer-motion";
+
 export const pageStyle = {
 	position: "absolute"
 };
-
 export const pageVariants = {
 	initial: {
 		opacity: 0,
@@ -19,9 +21,22 @@ export const pageVariants = {
 		scale: 1.2
 	}
 };
-
 export const pageTransition = {
 	type: "tween",
 	ease: "anticipate",
 	duration: 0.5
 };
+
+export default (props) => {
+	return <motion.div
+		style={pageStyle}
+		initial="initial"
+		animate="in"
+		exit="out"
+		variants={pageVariants}
+		transition={pageTransition}
+		{...props}
+	>
+		{props.children}
+	</motion.div>;
+}

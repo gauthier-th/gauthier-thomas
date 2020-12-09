@@ -31,6 +31,9 @@ const Navbar = ({ onIconLoad }) => {
 				<a href="https://github.com/gauthier-th" target="_blank" style={{ top: 0 }}>
 					<img className="mr-3" src="/img/github-mark.svg" style={{ height: 32 }} />
 				</a>
+				<a href="https://www.linkedin.com/in/gauthier-thomas-a509651b7" target="_blank" style={{ top: 0 }}>
+					<img className="mr-3" src="/img/linkedin.svg" style={{ height: 32 }} />
+				</a>
 				<div className={styles.contactContainer}>
 					<a className={styles.contact} href="mailto:mail@gauthier-thomas.dev">Contact</a>
 				</div>
