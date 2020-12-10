@@ -31,23 +31,23 @@ const About = () => {
 			<div>
 				<h1>About me</h1>
 				<h4>
-					I'm a French computer science student who is passionate about writing code, building websites and other fun stuff!<br />
+					I'm a French computer science student who is passionate about writing code, building websites and other fun stuff!
 				</h4>
-				<div className="my-5 d-flex flex-column justify-content-between" /*style={{ minHeight: "calc(100vh - 200px - 18rem)" }}*/>
+				<div className="my-5 d-flex flex-column justify-content-between">
 					<div className="d-flex justify-content-end">
-						<div className={mainStyles.rotateAnim}>
+						<div className={mainStyles.rotateAnim} style={{ transitionDelay: '.2s, .2s' }}>
 							<span>I'm studying at ESIREM, an engineering school in Dijon.</span>
 							<img src="/img/studency.svg" className="ml-3" />
 						</div>
 					</div>
 					<div className="mt-3 d-flex justify-content-start">
-						<div className={mainStyles.rotateAnim} style={{ transitionDelay: '.5s' }}>
+						<div className={mainStyles.rotateAnim} style={{ transitionDelay: '.5s, .5s' }}>
 							<img src="/img/displaygame.svg" className="mr-3" />
 							<span>I sometimes play video games as CS:GO, LoL or Minecraft.</span>
 						</div>
 					</div>
 					<div className="mt-3 d-flex justify-content-end">
-						<div className={mainStyles.rotateAnim} style={{ transitionDelay: '.8s' }}>
+						<div className={mainStyles.rotateAnim} style={{ transitionDelay: '.8s, .8s' }}>
 							<span>Coding is my passion since I discovered PHP and web technologies few years ago.</span>
 							<img src="/img/code.svg" className="ml-3" />
 						</div>
