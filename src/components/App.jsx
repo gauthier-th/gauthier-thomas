@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import Layout from './Layout';
 
 import Home from './pages/Home';
+import About from './pages/About';
 import Page404 from './pages/404';
 
 
@@ -15,6 +16,7 @@ const AppContent = () => {
 		<AnimatePresence>
 			<Switch location={location} key={location.pathname}>
 				<Route exact path='/' component={Home} />
+				<Route exact path='/about' component={About} />
 				<Route component={Page404} />
 			</Switch>
 		</AnimatePresence>

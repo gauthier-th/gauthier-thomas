@@ -13,7 +13,10 @@ export const pageVariants = {
 	in: {
 		opacity: 1,
 		translateY: "0px",
-		scale: 1
+		scale: 1,
+		transition: {
+			delay: 0.5
+		}
 	},
 	out: {
 		opacity: 0,
@@ -29,13 +32,13 @@ export const pageTransition = {
 
 export default (props) => {
 	return <motion.div
-		style={pageStyle}
+		{...props}
+		style={{ ...props.style, ...pageStyle }}
 		initial="initial"
 		animate="in"
 		exit="out"
 		variants={pageVariants}
 		transition={pageTransition}
-		{...props}
 	>
 		{props.children}
 	</motion.div>;

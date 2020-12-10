@@ -14,45 +14,6 @@
 	font-weight: 100;
 }
 
-.showMore {
-	user-select: none;
-	opacity: 0;
-	transform: translateY(16px);
-	transition: opacity ease .3s, transform ease .3s;
-	transition-delay: .5s, .5s;
-}
-.visible .showMore {
-	opacity: 1;
-	transform: translateY(0);
-	transition-delay: 0;
-}
-.showMore a {
-	transform: translateY(0);
-	transition: transform ease .15s;
-}
-.showMore a:hover {
-	transform: translateY(-4px);
-}
-.showMore a, .showMore a:hover, .showMore a:active {
-	color: #eee;
-	text-decoration: none;
-}
-.showMore img {
-	height: 2rem;
-}
-
-.rotateAnim {
-	backface-visibility: hidden;
-	opacity: 0;
-	transform: perspective(2500px) rotateY(-15deg);
-	transition: .3s cubic-bezier(.18,.88,.67,1.13) transform, .2s cubic-bezier(.18,.88,.67,1.13) opacity;
-	transition-delay: .2s, .2s;
-}
-.rotateAnim.visible {
-	opacity: 1;
-	transform: perspective(2500px) rotateY(0);
-}
-
 @media (max-width: 992px) {
 	.pageContent .mt-5, .pageContent .my-5 {
 		margin-top: 0 !important;
