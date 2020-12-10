@@ -22,6 +22,9 @@
 :global(.visible) .skill.w90 {
 	width: 90%;
 }
+:global(.visible) .skill.w80 {
+	width: 80%;
+}
 :global(.visible) .skill.w70 {
 	width: 70%;
 }
