@@ -16,7 +16,7 @@ const Home = () => {
 	}, [pageRef]);
 	return <PageContainer className={styles.pageContent}>
 		<div className="container d-flex flex-column justify-content-between" ref={pageRef}>
-			<div className={styles.rotateAnim}>
+			<div className={mainStyles.rotateAnim}>
 				<h1 className="mt-5 display-4 text-right text-light">Hi!</h1>
 				<h1 className="text-right text-light">I'm Gauthier Thomas,</h1>
 				<h1 className="text-right text-light">a full-stack web developper.</h1>
