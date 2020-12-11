@@ -24,12 +24,20 @@ const AppContent = () => {
 	const location = useLocation();
 	const history = useHistory();
 	const wheelCount = useRef(0);
+	const xDown = useRef(null);
+	const yDown = useRef(null);
 	const lastPageChange = useRef(Date.now());
-	const { handleWheel } = pageEvents(pageOrder, history, wheelCount, lastPageChange);
+	const { handleWheel, handleTouchStart, handleTouchCancel, handleTouchEnd } = pageEvents(pageOrder, history, wheelCount, lastPageChange, xDown, yDown);
 	useEffect(() => {
 		window.addEventListener('wheel', handleWheel, false);
+		document.addEventListener('touchstart', handleTouchStart, false);
+		document.addEventListener('touchcancel', handleTouchCancel, false);
+		document.addEventListener('touchend', handleTouchEnd, false);
 		return () => {
 			window.removeEventListener('wheel', handleWheel, false);
+			document.removeEventListener('touchstart', handleTouchStart, false);
+			document.removeEventListener('touchcancel', handleTouchCancel, false);
+			document.removeEventListener('touchend', handleTouchEnd, false);
 		};
 	}, []);
 	return <Layout>
