@@ -55,15 +55,15 @@ const Contact = () => {
 		</div>
 		<div ref={pageContent} className={cx(styles.pageContent, "d-flex", "flex-column", "justify-content-between")}>
 			<div>
-				<h1 className="mb-4">Contact</h1>
+				<h1 className="mb-5">Contact</h1>
 				<h4>
 					You can contact me by email: <a href="mailto:mail@gauthier-thomas.dev">mail@gauthier-thomas.dev</a>
 				</h4>
-				<h4>Or with this form:</h4>
-				<form action="#" method="post" className="mt-3">
+				<h4 className="mt-4">Or with this form:</h4>
+				<form action="#" method="post" className="mt-4">
 					<div>
 						<input ref={mailInputRef} type="email" placeholder="Your email" disabled={mailSended || mailSending} /><br />
-						<textarea ref={textearRef} placeholder="Your message" className="mt-2" disabled={mailSended || mailSending}></textarea><br />
+						<textarea ref={textearRef} placeholder="Your message" className="mt-4" disabled={mailSended || mailSending}></textarea><br />
 						<div className="d-flex justify-content-between align-items-center">
 							{(() => {
 								if (mailSended)
@@ -75,7 +75,7 @@ const Contact = () => {
 								else
 									return <div></div>;
 							})()}
-							<div className={cx(mainStyles.styledButtonContainer, "mt-2", mailSended || mailSending ? "disabled" : null)}>
+							<div className={cx(mainStyles.styledButtonContainer, "mt-4", mailSended || mailSending ? "disabled" : null)}>
 								<button type="button" className={mainStyles.styledButton} onClick={sendForm}>Send!</button>
 							</div>
 						</div>
