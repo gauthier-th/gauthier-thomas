@@ -29,7 +29,7 @@ body {
 	color: #ddd;
 	z-index: 999;
 }
-.navbar a {
+.navbar a:not(.styledButton) {
 	color: #ddd;
 }
 .navbar a.logo {
@@ -37,30 +37,41 @@ body {
 }
 .navbar a:not(.logo) {
 	position: relative;
-	top: 16px;
 	text-transform: uppercase;
 	text-decoration: none;
 }
 
 
-.navbar .contactContainer {
+.styledButtonContainer {
 	position: relative;
 	display: inline-block;
 	border: 1px solid #eee;
 	border-radius: 3px;
-	padding: 5px 0;
+	top: 0;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 16px;
 }
-.navbar a.contact {
+.styledButtonContainer:global(.disabled) {
+	border-color: #aaa;
+}
+.styledButton {
 	top: 0;
 	border: none;
 	color: #eee;
-	padding: 8px;
+	padding: 6px 8px;
 	background-color: transparent;
 	text-transform: uppercase;
 	cursor: pointer;
 	transition: color .4s ease;
+	min-width: 80px;
+	display: inline-block;
 }
-.navbar a.contact::after {
+.styledButton:disabled, .styledButtonContainer:global(.disabled) .styledButton {
+	cursor: default;
+	color: #aaa;
+}
+.styledButton::after {
 	content: "";
 	color: #000;
 	position: absolute;
@@ -74,10 +85,10 @@ body {
 	z-index: -1;
 	transition: width .4s ease;
 }
-.navbar a.contact:hover {
+.styledButtonContainer:not(:global(.disabled)) .styledButton:not(:disabled):hover {
 	color: #111;
 }
-.navbar a.contact:hover::after {
+.styledButtonContainer:not(:global(.disabled)) .styledButton:not(:disabled):hover::after {
 	width: 100%;
 }
 
@@ -98,11 +109,11 @@ body {
 	}
 }
 
-.navbar a:hover {
+.navbar a:not(styledButton):hover {
 	text-decoration: none;
 	color: #aaa;
 }
-.navbar a:active {
+.navbar a:not(styledButton):active {
 	text-decoration: none;
 	color: #f33535;
 }
@@ -343,6 +354,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
+}
+
+
+input[type="button"], input[type="button"]:focus, button, button:focus {
+	outline: none;
+}
+input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
+	border: 0;
 }
 
 

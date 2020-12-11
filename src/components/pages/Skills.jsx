@@ -10,7 +10,7 @@ const Skills = () => {
 	const pageContent = useRef(null);
 	const contactRef = useRef(null);
 	useEffect(() => {
-		if (contactRef && aboutRef) {
+		if (aboutRef && pageContent && contactRef) {
 			setTimeout(() => {
 				aboutRef.current.classList.add('visible');
 				contactRef.current.classList.add('visible');
@@ -19,7 +19,7 @@ const Skills = () => {
 				pageContent.current.classList.add('visible');
 			}, 500);
 		}
-	}, [contactRef]);
+	}, [aboutRef, pageContent, contactRef]);
 	return <PageContainer className="container d-flex flex-column justify-content-between">
 		<div ref={aboutRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
 			<NavLink to="/about" className="d-inline-block p-2">

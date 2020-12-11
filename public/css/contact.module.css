@@ -1,0 +1,35 @@
+.pageContent {
+	max-width: 920px;
+	min-height: calc(100vh - 150px - 10rem);
+	margin: 0 auto;
+}
+
+.pageContent a {
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	text-decoration: none;
+}
+.pageContent a:hover, .pageContent a:active {
+	color: #ccc;
+	border-bottom: 1px solid #ccc;
+	text-decoration: none;
+}
+
+.pageContent input, .pageContent textarea {
+	width: 100%;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	outline: none;
+	background-color: transparent;
+	font-size: 1rem;
+	padding: 4px 8px;
+	color: #fff;
+	font-weight: 200;
+}
+.pageContent textarea {
+	min-height: 150px;
+}
+.pageContent input:disabled, .pageContent textarea:disabled {
+	border: 1px solid #aaa;
+	color: #aaa;
+}

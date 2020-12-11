@@ -8,6 +8,7 @@ import Layout from './Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
+import Contact from './pages/Contact';
 import Page404 from './pages/404';
 
 
@@ -19,6 +20,7 @@ const AppContent = () => {
 				<Route exact path='/' component={Home} />
 				<Route exact path='/about' component={About} />
 				<Route exact path='/skills' component={Skills} />
+				<Route exact path='/Contact' component={Contact} />
 				<Route component={Page404} />
 			</Switch>
 		</AnimatePresence>
