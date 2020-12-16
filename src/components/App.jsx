@@ -28,11 +28,13 @@ const AppContent = () => {
 	const yDown = useRef(null);
 	const lastPageChange = useRef(Date.now());
 	const { handleWheel, handleTouchStart, handleTouchCancel, handleTouchEnd } = pageEvents(pageOrder, history, wheelCount, lastPageChange, xDown, yDown);
+	const audio = new Audio('/vzouumm.mp3');
 	useEffect(() => {
 		window.addEventListener('wheel', handleWheel, false);
 		document.addEventListener('touchstart', handleTouchStart, false);
 		document.addEventListener('touchcancel', handleTouchCancel, false);
 		document.addEventListener('touchend', handleTouchEnd, false);
+		setTimeout(audio.play, 1000);
 		return () => {
 			window.removeEventListener('wheel', handleWheel, false);
 			document.removeEventListener('touchstart', handleTouchStart, false);
@@ -40,6 +42,9 @@ const AppContent = () => {
 			document.removeEventListener('touchend', handleTouchEnd, false);
 		};
 	}, []);
+	useEffect(() => {
+		audio.play();
+	}, [location.pathname]);
 	return <Layout>
 		<AnimatePresence>
 			<Switch location={location} key={location.pathname}>
