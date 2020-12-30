@@ -26,6 +26,10 @@
 	color: #fff;
 	font-weight: 200;
 }
+.pageContent input::placeholder, .pageContent textarea::placeholder {
+	color: white;
+	opacity: .7;
+}
 .pageContent textarea {
 	min-height: 150px;
 }
