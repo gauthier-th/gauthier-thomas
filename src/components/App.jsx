@@ -19,6 +19,18 @@ const pageOrder = [
 	'/contact'
 ];
 
+const Pages = ({ location, lang }) => (
+	<AnimatePresence>
+		<Switch location={location} key={location.pathname}>
+			<Route exact path='/' render={() => <Home lang={lang} />} />
+			<Route exact path='/about' render={() => <About lang={lang} />} />
+			<Route exact path='/skills' render={() => <Skills lang={lang} />} />
+			<Route exact path='/contact' render={() => <Contact lang={lang} />} />
+			<Route render={() => <Page404 lang={lang} />} />
+		</Switch>
+	</AnimatePresence>
+)
+
 
 const AppContent = () => {
 	const location = useLocation();
@@ -45,16 +57,8 @@ const AppContent = () => {
 	useEffect(() => {
 		audio.play();
 	}, [location.pathname]);
-	return <Layout>
-		<AnimatePresence>
-			<Switch location={location} key={location.pathname}>
-				<Route exact path='/' component={Home} />
-				<Route exact path='/about' component={About} />
-				<Route exact path='/skills' component={Skills} />
-				<Route exact path='/Contact' component={Contact} />
-				<Route component={Page404} />
-			</Switch>
-		</AnimatePresence>
+	return <Layout lang='en'>
+		<Pages location={location} lang='en' />
 	</Layout>;
 }
 const App = () => {

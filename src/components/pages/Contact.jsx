@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 import PageContainer from '../PageContainer';
+import { langTranslations } from '../Translations';
 import styles from '../../../public/css/contact.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
-const Contact = () => {
+const Contact = ({ lang }) => {
 	const [mailSended, setMailSended] = useState(false);
 	const [mailSending, setMailSending] = useState(false);
 	const [error, setError] = useState(null);
@@ -46,37 +47,53 @@ const Contact = () => {
 			setError('Error while sending message...');
 		});
 	};
+	const Translations = langTranslations(lang);
 	return <PageContainer className="container d-flex flex-column justify-content-between">
 		<div ref={skillsRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
 			<NavLink to="/skills" className="d-inline-block p-2">
 				<img src="/img/more.svg" />
-				<h3>Skills</h3>
+				<h3>
+					<Translations page='contact' translation='skills' />
+				</h3>
 			</NavLink>
 		</div>
 		<div ref={pageContent} className={cx(styles.pageContent, "d-flex", "flex-column", "justify-content-between")}>
 			<div>
-				<h1 className="mb-5">Contact</h1>
+				<h1 className="mb-5">
+					<Translations page='contact' translation='title' />
+				</h1>
 				<h4>
-					You can contact me by email: <a href="mailto:mail@gauthier-thomas.dev">mail@gauthier-thomas.dev</a>
+					<Translations page='contact' translation='email' />
+					<a href="mailto:mail@gauthier-thomas.dev">mail@gauthier-thomas.dev</a>
 				</h4>
-				<h4 className="mt-4">Or with this form:</h4>
+				<h4 className="mt-4">
+					<Translations page='contact' translation='form' />
+				</h4>
 				<form action="#" method="post" className="mt-4">
 					<div>
 						<input ref={mailInputRef} type="email" placeholder="Your email" disabled={mailSended || mailSending} /><br />
 						<textarea ref={textearRef} placeholder="Your message" className="mt-4" disabled={mailSended || mailSending}></textarea><br />
 						<div className="d-flex justify-content-between align-items-center">
 							{(() => {
-								if (mailSended)
-									return <span className="text-success" style={{ fontWeight: 300 }}>Message sent!</span>;
-								else if (mailSending)
-									return <span style={{ fontWeight: 300 }}>Sending message...</span>;
+								if (mailSended) {
+									return <span className="text-success" style={{ fontWeight: 300 }}>
+										<Translations page='contact' translation='messageSent' />
+									</span>;
+								}
+								else if (mailSending) {
+									return <span style={{ fontWeight: 300 }}>
+										<Translations page='contact' translation='sending' />
+									</span>;
+								}
 								else if (error)
 									return <span className="text-danger" style={{ fontWeight: 300 }}>{error}</span>;
 								else
 									return <div></div>;
 							})()}
 							<div className={cx(mainStyles.styledButtonContainer, "mt-4", mailSended || mailSending ? "disabled" : null)}>
-								<button type="button" className={mainStyles.styledButton} onClick={sendForm}>Send!</button>
+								<button type="button" className={mainStyles.styledButton} onClick={sendForm}>
+									<Translations page='contact' translation='send' />
+								</button>
 							</div>
 						</div>
 					</div>

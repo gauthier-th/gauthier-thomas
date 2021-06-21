@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 import PageContainer from '../PageContainer';
+import { langTranslations } from '../Translations';
 import styles from '../../../public/css/skills.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
-const Skills = () => {
+const Skills = ({ lang }) => {
 	const aboutRef = useRef(null);
 	const pageContent = useRef(null);
 	const contactRef = useRef(null);
@@ -20,18 +21,23 @@ const Skills = () => {
 			}, 500);
 		}
 	}, [aboutRef, pageContent, contactRef]);
+	const Translations = langTranslations(lang);
 	return <PageContainer className="container d-flex flex-column justify-content-between">
 		<div ref={aboutRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
 			<NavLink to="/about" className="d-inline-block p-2">
 				<img src="/img/more.svg" />
-				<h3>About me</h3>
+				<h3>
+					<Translations page='skills' translation='about' />
+				</h3>
 			</NavLink>
 		</div>
 		<div ref={pageContent} className={cx(styles.pageContent, "d-flex", "flex-column", "justify-content-between")}>
 			<div>
-				<h1>My skills</h1>
+				<h1>
+					<Translations page='skills' translation='title' />
+				</h1>
 				<h4>
-					As a full-stack web developer, I often program with JavaScript, Node.js and React, but also with PHP.
+					<Translations page='skills' translation='desc' />
 				</h4>
 				<div className="my-5 d-flex flex-column justify-content-between">
 					<div className={cx(styles.skill, styles.w90)} style={{ transitionDelay: '.4s, .4s' }}>
@@ -73,7 +79,9 @@ const Skills = () => {
 			</div>
 			<div ref={contactRef} className={cx(mainStyles.arrowLink, "d-flex", "justify-content-center", "mt-3", "text-center")}>
 				<NavLink to="/contact" className="d-inline-block p-2">
-					<h3>Contact</h3>
+					<h3>
+						<Translations page='skills' translation='contact' />
+					</h3>
 					<img src="/img/more.svg" />
 				</NavLink>
 			</div>

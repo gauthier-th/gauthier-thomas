@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from '../../public/css/styles.module.css'
+import Translations from './Translations';
+import styles from '../../public/css/styles.module.css';
 
-const Navbar = ({ onIconLoad }) => {
+const Navbar = ({ onIconLoad, lang }) => {
 	const iconRef = useRef(null);
 	useEffect(() => {
 		onIconLoad && onIconLoad(iconRef);
@@ -35,7 +36,9 @@ const Navbar = ({ onIconLoad }) => {
 					<img className="mr-3" src="/img/linkedin.svg" style={{ height: 32 }} />
 				</a>
 				<div className={styles.styledButtonContainer}>
-					<NavLink className={styles.styledButton} to="/contact">Contact</NavLink>
+					<NavLink className={styles.styledButton} to="/contact">
+						<Translations lang={lang} translation='navbarContact' />
+					</NavLink>
 				</div>
 			</div>
 		</div>
