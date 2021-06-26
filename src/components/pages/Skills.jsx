@@ -6,7 +6,7 @@ import { langTranslations } from '../Translations';
 import styles from '../../../public/css/skills.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
-const Skills = ({ lang }) => {
+const Skills = ({ lang, langPrefix }) => {
 	const aboutRef = useRef(null);
 	const pageContent = useRef(null);
 	const contactRef = useRef(null);
@@ -24,7 +24,7 @@ const Skills = ({ lang }) => {
 	const Translations = langTranslations(lang);
 	return <PageContainer className="container d-flex flex-column justify-content-between">
 		<div ref={aboutRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
-			<NavLink to="/about" className="d-inline-block p-2">
+			<NavLink to={langPrefix + "/about"} className="d-inline-block p-2">
 				<img src="/img/more.svg" />
 				<h3>
 					<Translations page='skills' translation='about' />
@@ -78,7 +78,7 @@ const Skills = ({ lang }) => {
 				</div>
 			</div>
 			<div ref={contactRef} className={cx(mainStyles.arrowLink, "d-flex", "justify-content-center", "mt-3", "text-center")}>
-				<NavLink to="/contact" className="d-inline-block p-2">
+				<NavLink to={langPrefix + "/contact"} className="d-inline-block p-2">
 					<h3>
 						<Translations page='skills' translation='contact' />
 					</h3>

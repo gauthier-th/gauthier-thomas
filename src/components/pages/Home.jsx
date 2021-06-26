@@ -6,7 +6,7 @@ import { langTranslations } from '../Translations';
 import styles from '../../../public/css/index.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
-const Home = ({ lang }) => {
+const Home = ({ lang, langPrefix }) => {
 	const pageRef = useRef(null);
 	useEffect(() => {
 		if ( pageRef) {
@@ -30,7 +30,7 @@ const Home = ({ lang }) => {
 				</h1>
 			</div>
 			<div className={cx(mainStyles.arrowLink, "d-flex", "justify-content-center", "mb-5", "mt-4", "text-center")}>
-				<NavLink to="/about" className="d-inline-block p-2">
+				<NavLink to={langPrefix + "/about"} className="d-inline-block p-2">
 					<h3>
 						<Translations page='home' translation='about' />
 					</h3>

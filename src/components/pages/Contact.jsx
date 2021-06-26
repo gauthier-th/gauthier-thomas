@@ -6,7 +6,7 @@ import { langTranslations, translationContent } from '../Translations';
 import styles from '../../../public/css/contact.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
-const Contact = ({ lang }) => {
+const Contact = ({ lang, langPrefix }) => {
 	const [mailSended, setMailSended] = useState(false);
 	const [mailSending, setMailSending] = useState(false);
 	const [error, setError] = useState(null);
@@ -50,7 +50,7 @@ const Contact = ({ lang }) => {
 	const Translations = langTranslations(lang);
 	return <PageContainer className="container d-flex flex-column justify-content-between">
 		<div ref={skillsRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
-			<NavLink to="/skills" className="d-inline-block p-2">
+			<NavLink to={langPrefix + "/skills"} className="d-inline-block p-2">
 				<img src="/img/more.svg" />
 				<h3>
 					<Translations page='contact' translation='skills' />

@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import Translations from './Translations';
+import { NavLink, useLocation } from 'react-router-dom';
+import Translations, { langFromUrl, defaultLang } from './Translations';
 import styles from '../../public/css/styles.module.css';
 
-const Navbar = ({ onIconLoad, lang }) => {
+const Navbar = ({ onIconLoad }) => {
+	const location = useLocation();
+	const lang = langFromUrl(location.pathname);
+	const langPrefix = lang ? "/" + lang : "";
 	const iconRef = useRef(null);
 	useEffect(() => {
 		onIconLoad && onIconLoad(iconRef);
 	}, [iconRef]);
 	return <div className={styles.navbar}>
 		<div className="container d-flex justify-content-between p-2">
-			<NavLink to="/" className={styles.logo}>
+			<NavLink to={langPrefix + "/"} className={styles.logo}>
 				<svg ref={iconRef} className={styles.logo} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2000 2000" style={{ enableBackground: "new 0 0 2000 2000" }} xmlSpace="preserve">
 					<defs>
 						<linearGradient id="logoGTGradient" x1="50%" y1="0%" x2="50%" y2="100%" > 
@@ -36,8 +39,8 @@ const Navbar = ({ onIconLoad, lang }) => {
 					<img className="mr-3" src="/img/linkedin.svg" style={{ height: 32 }} />
 				</a>
 				<div className={styles.styledButtonContainer}>
-					<NavLink className={styles.styledButton} to="/contact">
-						<Translations lang={lang} translation='navbarContact' />
+					<NavLink className={styles.styledButton} to={langPrefix + "/contact"}>
+						<Translations lang={lang || defaultLang} translation='navbarContact' />
 					</NavLink>
 				</div>
 			</div>

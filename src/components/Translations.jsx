@@ -1,5 +1,7 @@
 import React from 'react';
 
+export const defaultLang = 'fr';
+
 const translations = {
 	en: {
 		default: {
@@ -101,6 +103,14 @@ export function translationContent(lang, page, translation) {
 
 export function getLangs() {
 	return Object.keys(translations);
+}
+
+export function langFromUrl(pathname) {
+	const match = /^\/(\w+)\/?/.exec(pathname);
+	if (!match || !getLangs().includes(match[1]))
+		return '';
+	else
+		return match[1];
 }
 
 export default function Translations({ lang, page, translation }) {

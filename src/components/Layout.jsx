@@ -5,12 +5,12 @@ import Stars from './Stars';
 import Navbar from './Navbar';
 import LoadAnimation from './LoadAnimation';
 
-const Layout = ({ children, lang }) => {
+const Layout = ({ children }) => {
 	const [navbarIconEl, setNavbarIconEl] = useState(null);
 	const [loadCompleted, setLoadCompleted] = useState(false);
 	return <>
 		<Stars />
-		<Navbar onIconLoad={setNavbarIconEl} lang={lang} />
+		<Navbar onIconLoad={setNavbarIconEl} />
 		<LoadAnimation navbarIconEl={navbarIconEl} onEnd={() => setLoadCompleted(true)} />
 		{loadCompleted && <div className={cx(styles.content, "container")}>
 			{children}

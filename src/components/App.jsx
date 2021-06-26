@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, useHistory, useLocation } from 'react-rou
 import { AnimatePresence } from "framer-motion";
 
 import pageEvents from './pageEvents';
-import { getLangs } from './Translations';
+import { defaultLang, getLangs } from './Translations';
 import Layout from './Layout';
 
 import Home from './pages/Home';
@@ -13,7 +13,6 @@ import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import Page404 from './pages/404';
 
-const defaultLang = 'en';
 const pages = {
 	'/': Home,
 	'/about': About,
@@ -73,7 +72,7 @@ const AppContent = () => {
 	useEffect(() => {
 		audio.play();
 	}, [location.pathname]);
-	return <Layout lang={defaultLang}>
+	return <Layout>
 		<Pages location={location} />
 	</Layout>;
 }
