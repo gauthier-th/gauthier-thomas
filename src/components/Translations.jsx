@@ -79,7 +79,7 @@ const translations = {
 			send: 'Envoyer !'
 		},
 		'404': {
-			title: 'Pas introuvable',
+			title: 'Page introuvable',
 			desc: 'Désolé, mais cette page n\'existe pas.'
 		}
 	}
@@ -97,6 +97,10 @@ export function translationContent(lang, page, translation) {
 	if (!Object.keys(translations[lang][page || 'default']).includes(translation))
 		throw 'Unkown translation ' + translation;
 	return translations[lang][page || 'default'][translation];
+}
+
+export function getLangs() {
+	return Object.keys(translations);
 }
 
 export default function Translations({ lang, page, translation }) {
