@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 import PageContainer from '../PageContainer';
-import { langTranslations } from '../Translations';
+import { langTranslations, translationContent } from '../Translations';
 import styles from '../../../public/css/contact.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
@@ -71,8 +71,8 @@ const Contact = ({ lang }) => {
 				</h4>
 				<form action="#" method="post" className="mt-4">
 					<div>
-						<input ref={mailInputRef} type="email" placeholder="Your email" disabled={mailSended || mailSending} /><br />
-						<textarea ref={textearRef} placeholder="Your message" className="mt-4" disabled={mailSended || mailSending}></textarea><br />
+						<input ref={mailInputRef} type="email" placeholder={translationContent(lang, 'contact', 'emailPlaceholder')} disabled={mailSended || mailSending} /><br />
+						<textarea ref={textearRef} placeholder={translationContent(lang, 'contact', 'messagePlaceholder')} className="mt-4" disabled={mailSended || mailSending}></textarea><br />
 						<div className="d-flex justify-content-between align-items-center">
 							{(() => {
 								if (mailSended) {
