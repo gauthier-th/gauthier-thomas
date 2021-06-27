@@ -112,6 +112,10 @@ export function langFromUrl(pathname) {
 	else
 		return match[1];
 }
+export function langPrefixFromUrl(pathname) {
+	const lang = langFromUrl(pathname);
+	return lang ? '/' + lang : '';
+}
 
 export default function Translations({ lang, page, translation }) {
 	return translationContent(lang, page, translation);

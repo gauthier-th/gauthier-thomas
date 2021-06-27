@@ -52,7 +52,7 @@ const AppContent = () => {
 	const xDown = useRef(null);
 	const yDown = useRef(null);
 	const lastPageChange = useRef(Date.now());
-	const { handleWheel, handleTouchStart, handleTouchCancel, handleTouchEnd } = pageEvents(Object.keys(pages), history, wheelCount, lastPageChange, xDown, yDown);
+	const { handleWheel, handleTouchStart, handleTouchCancel, handleTouchEnd } = pageEvents(Object.keys(pages), location, history, wheelCount, lastPageChange, xDown, yDown);
 	const audio = new Audio('/vzouumm.mp3');
 	useEffect(() => {
 		window.addEventListener('wheel', handleWheel, false);
