@@ -91,6 +91,12 @@ body {
 .styledButtonContainer:not(:global(.disabled)) .styledButton:not(:disabled):hover::after {
 	width: 100%;
 }
+@media (max-width: 380px) {
+	.styledButton {
+		padding: 3px 6px;
+		font-size: 1.2rem;
+	}
+}
 
 
 
@@ -407,4 +413,76 @@ input[type="button"]::-moz-focus-inner, button::-moz-focus-inner {
 }
 .arrowLink.revert img {
 	transform: scaleY(-1);
+}
+
+div[role='menu'] {
+	visibility: hidden;
+}
+
+div[role='menu'].visible {
+	visibility: visible;
+}
+
+.menuContainer {
+	position: relative;
+}
+
+.menuButton {
+	-webkit-appearance: none;
+	appearance: none;
+	margin: auto;
+	padding: 0.3rem;
+	background: transparent;
+	outline: 0;
+	border: none;
+	border-radius: .2rem;
+	font-size: 1.2rem;
+	color: #000;
+	font-weight: 300;
+	cursor: pointer;
+	position: relative;
+	line-height: 1;
+	transition: .2s .05s;
+	display: flex;
+}
+.menuButton img {
+	height: 32px;
+}
+
+.menuList {
+	background: #fff;
+	padding: 0;
+	border: 1px solid #ddd;
+	border-radius: .25rem;
+	box-shadow: 0 .2rem .4rem rgba(0,0,0,.1);
+	opacity: 0;
+	visibility: hidden;
+	transition: transform .2s,opacity .2s,visibility 0s linear .2s;
+	will-change: transform;
+	position: absolute;
+	width: fit-content;
+	left: 0;
+	right: 0;
+	margin: .8rem auto auto;
+	z-index: 2;
+}
+.menuList:global(.visible) {
+	transform: translateY(-.3rem);
+	transition: transform .2s, opacity .2s, visibility linear;
+	visibility: visible;
+	opacity: 1;
+}
+
+.menuList a {
+	display: block;
+	font-size: 1rem;
+	padding: .25rem;
+	color: #29779e;
+	text-decoration: none;
+	cursor: pointer;
+	outline: 0;
+	border: none;
+}
+.menuList a img {
+	height: 32px;
 }

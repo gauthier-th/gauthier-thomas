@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import Translations, { langFromUrl, defaultLang } from './Translations';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import cx from 'classnames';
+import useDropdownMenu from 'react-accessible-dropdown-menu-hook';
+import Translations, { langFromUrl, defaultLang, getLangs, translationContent } from './Translations';
 import styles from '../../public/css/styles.module.css';
 
 const Navbar = ({ onIconLoad }) => {
 	const location = useLocation();
+	const history = useHistory();
 	const lang = langFromUrl(location.pathname);
 	const langPrefix = lang ? "/" + lang : "";
 	const iconRef = useRef(null);
@@ -33,17 +36,42 @@ const Navbar = ({ onIconLoad }) => {
 			</NavLink>
 			<div className="items d-flex align-content-start align-items-center">
 				<a href="https://github.com/gauthier-th" target="_blank" style={{ top: 0 }}>
-					<img className="mr-3" src="/img/github-mark.svg" style={{ height: 32 }} />
+					<img className="mr-2 mr-sm-3" src="/img/github-mark.svg" style={{ height: 32 }} />
 				</a>
 				<a href="https://www.linkedin.com/in/gauthier-thomas-a509651b7" target="_blank" style={{ top: 0 }}>
-					<img className="mr-3" src="/img/linkedin.svg" style={{ height: 32 }} />
+					<img className="mr-2 mr-sm-3" src="/img/linkedin.svg" style={{ height: 32 }} />
 				</a>
-				<div className={styles.styledButtonContainer}>
+				<DropDown {...{ lang: lang || defaultLang, langPrefix, history }} />
+				<div className={cx('ml-2 ml-sm-3', styles.styledButtonContainer)}>
 					<NavLink className={styles.styledButton} to={langPrefix + "/contact"}>
 						<Translations lang={lang || defaultLang} translation='navbarContact' />
 					</NavLink>
 				</div>
 			</div>
+		</div>
+	</div>;
+}
+
+const DropDown = ({ lang, langPrefix, history }) => {
+	const { buttonProps, itemProps, isOpen, setIsOpen } = useDropdownMenu(getLangs().length);
+	return <div className={styles.menuContainer}>
+		<button className={styles.menuButton} {...buttonProps}>
+			<img src={translationContent(lang, 'default', 'img')} />
+		</button>
+		<div className={cx(styles.menuList, isOpen ? 'visible' : '')} role='menu'>
+			{getLangs().map((l, i) => (
+				<a
+					{...itemProps[i]}
+					key={l}
+					onClick={() => {
+						setIsOpen(false);
+						const newLangPrefix = l === defaultLang ? '' : '/' + l;
+						history.push(newLangPrefix + history.location.pathname.substr(langPrefix.length))
+					}}
+				>
+					<img src={translationContent(l, 'default', 'img')} />
+				</a>
+			))}
 		</div>
 	</div>;
 }
