@@ -9,18 +9,18 @@ import mainStyles from '../../../public/css/styles.module.css';
 const About = ({ lang, langPrefix }) => {
 	const homeRef = useRef(null);
 	const descRef = useRef(null);
-	const skillsRef = useRef(null);
+	const portfolioRef = useRef(null);
 	useEffect(() => {
-		if (skillsRef && homeRef) {
+		if (portfolioRef && homeRef) {
 			setTimeout(() => {
 				homeRef.current.classList.add('visible');
-				skillsRef.current.classList.add('visible');
+				portfolioRef.current.classList.add('visible');
 			}, 100);
 			setTimeout(() => {
 				descRef.current.classList.add('visible');
 			}, 500);
 		}
-	}, [skillsRef]);
+	}, [portfolioRef]);
 	const Translations = langTranslations(lang);
 	return <PageContainer className="container d-flex flex-column justify-content-between">
 		<div ref={homeRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
@@ -51,10 +51,10 @@ const About = ({ lang, langPrefix }) => {
 					</p>
 				</div>
 			</div>
-			<div ref={skillsRef} className={cx(mainStyles.arrowLink, "d-flex", "justify-content-center", "mt-3", "text-center")}>
-				<NavLink to={langPrefix + "/skills"} className="d-inline-block p-2">
+			<div ref={portfolioRef} className={cx(mainStyles.arrowLink, "d-flex", "justify-content-center", "mt-3", "text-center")}>
+				<NavLink to={langPrefix + "/portfolio"} className="d-inline-block p-2">
 					<h3>
-						<Translations page='about' translation='skills' />
+						<Translations page='about' translation='portfolio' />
 					</h3>
 					<img src="/img/more.svg" />
 				</NavLink>

@@ -1,0 +1,5 @@
+.pageContent {
+	max-width: 920px;
+	min-height: calc(100vh - 150px - 10rem);
+	margin: 0 auto;
+}

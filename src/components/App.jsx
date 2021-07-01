@@ -9,6 +9,7 @@ import Layout from './Layout';
 
 import Home from './pages/Home';
 import About from './pages/About';
+import Portfolio from './pages/Portfolio';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import Page404 from './pages/404';
@@ -16,6 +17,7 @@ import Page404 from './pages/404';
 const pages = {
 	'/': Home,
 	'/about': About,
+	'/portfolio': Portfolio,
 	'/skills': Skills,
 	'/contact': Contact
 }

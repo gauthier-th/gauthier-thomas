@@ -7,27 +7,27 @@ import styles from '../../../public/css/skills.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
 const Skills = ({ lang, langPrefix }) => {
-	const aboutRef = useRef(null);
+	const portfolioRef = useRef(null);
 	const pageContent = useRef(null);
 	const contactRef = useRef(null);
 	useEffect(() => {
-		if (aboutRef && pageContent && contactRef) {
+		if (portfolioRef && pageContent && contactRef) {
 			setTimeout(() => {
-				aboutRef.current.classList.add('visible');
+				portfolioRef.current.classList.add('visible');
 				contactRef.current.classList.add('visible');
 			}, 100);
 			setTimeout(() => {
 				pageContent.current.classList.add('visible');
 			}, 500);
 		}
-	}, [aboutRef, pageContent, contactRef]);
+	}, [portfolioRef, pageContent, contactRef]);
 	const Translations = langTranslations(lang);
 	return <PageContainer className="container d-flex flex-column justify-content-between">
-		<div ref={aboutRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
-			<NavLink to={langPrefix + "/about"} className="d-inline-block p-2">
+		<div ref={portfolioRef} className={cx(mainStyles.arrowLink, mainStyles.revert, "d-flex", "justify-content-center", "text-center")} style={{ margin: '-3rem 0 1rem 0' }}>
+			<NavLink to={langPrefix + "/portfolio"} className="d-inline-block p-2">
 				<img src="/img/more.svg" />
 				<h3>
-					<Translations page='skills' translation='about' />
+					<Translations page='skills' translation='portfolio' />
 				</h3>
 			</NavLink>
 		</div>
