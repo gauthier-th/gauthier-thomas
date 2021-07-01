@@ -60,8 +60,12 @@ const AppContent = () => {
 		document.addEventListener('touchcancel', handleTouchCancel, false);
 		document.addEventListener('touchend', handleTouchEnd, false);
 		setTimeout(audio.play, 1000);
-		if (location.pathname === '/' && (navigator.language || navigator.userLanguage) !== defaultLang)
-			history.push('/' + (navigator.language || navigator.userLanguage));
+		if (location.pathname === '/' && (navigator.language || navigator.userLanguage) !== defaultLang) {
+			if (getLangs().includes((navigator.language || navigator.userLanguage)))
+				history.push('/' + (navigator.language || navigator.userLanguage));
+			else
+				history.push('/en');
+		}
 		return () => {
 			window.removeEventListener('wheel', handleWheel, false);
 			document.removeEventListener('touchstart', handleTouchStart, false);

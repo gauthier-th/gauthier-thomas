@@ -17,10 +17,10 @@ const translations = {
 		about: {
 			home: 'Home',
 			title: 'About me',
-			desc: 'I\'m a French computer science student who is passionate about writing code, building websites and other fun stuff!',
-			card1: 'I\'m studying at ESIREM, an engineering school in Dijon, France.',
-			card2: 'I sometimes play video games as CS:GO, LoL or Minecraft.',
-			card3: 'Coding is my passion since I discovered PHP and web technologies few years ago.',
+			subtitle: 'I\'m a computer science student in engineering school at ESIREM who is passionate by programming and web development. ',
+			desc1: 'For several years now, programming has been my favorite hobby since I discovered web technologies. I first started with basic websites made with PHP, HTML and CSS, then I went deeper into JavaScript, JQuery and React.',
+			desc2: 'Over a year ago, I started freelance so that I could use my skills to work on other projects and gain even more experience. ',
+			desc3: 'I can develop a small classic showcase site (for instace for a store), a more complete website (forms, connection, mail sending, ...) but also to create real web applications with the latest technologies. You can see some examples of sites I made on the next page.',
 			skills: 'My skills'
 		},
 		skills: {
@@ -59,10 +59,10 @@ const translations = {
 		about: {
 			home: 'Accueil',
 			title: 'À propos',
-			desc: 'Je suis un étudiant en informatique passionné par la programmation et le développement web.',
-			card1: 'J\'étudie actuellement à l\'ESIREM, une école d\'ingénieur à Dijon.',
-			card2: 'Je joue parfois à des jeux comme CS:GO, LoL ou Minecraft.',
-			card3: 'La programmation est une passion depuis que j\'ai découvert le web il y a quelques années.',
+			subtitle: 'Je suis étudiant en école d\'ingénieur à l\'ESIREM en informatique passionné par la programmation et le développement web.',
+			desc1: 'Depuis plusieurs années déjà, la programmation est mon passe temps préféré depuis que j\'ai découvert les technologies du web. J\'ai d\'abord commencé par des sites simples avec PHP, HTML et CSS, puis j\'ai ensuite approfondi avec le JavaScript, JQuery et React.',
+			desc2: 'Il y a plus d\'un an déjà, je me suis lancé dans le freelance en tant qu\'auto-entrepreneur afin de pouvoir mettre à profit mes compétences pour travailler sur d\'autres projets et acquérir encore plus d\'expérience.',
+			desc3: 'Je suis capable de développer un petit site vitrine classique (pour une boutique par exemple), une site web plus complet (formulaires, connexion, envoi d\'email, ...) mais aussi de créer des véritables applications web avec les dernières technologies. Vous pouvez voir quelques exemples de sites que j\'ai réalisé sur la page suivante.',
 			skills: 'Mes compétences'
 		},
 		skills: {

@@ -8,7 +8,7 @@ import mainStyles from '../../../public/css/styles.module.css';
 
 const About = ({ lang, langPrefix }) => {
 	const homeRef = useRef(null);
-	const pageContent = useRef(null);
+	const descRef = useRef(null);
 	const skillsRef = useRef(null);
 	useEffect(() => {
 		if (skillsRef && homeRef) {
@@ -17,7 +17,7 @@ const About = ({ lang, langPrefix }) => {
 				skillsRef.current.classList.add('visible');
 			}, 100);
 			setTimeout(() => {
-				pageContent.current.classList.add('visible');
+				descRef.current.classList.add('visible');
 			}, 500);
 		}
 	}, [skillsRef]);
@@ -31,39 +31,24 @@ const About = ({ lang, langPrefix }) => {
 				</h3>
 			</NavLink>
 		</div>
-		<div ref={pageContent} className={cx(styles.pageContent, "d-flex", "flex-column", "justify-content-between")}>
+		<div className={cx(styles.pageContent, "d-flex", "flex-column", "justify-content-between")}>
 			<div>
 				<h1>
 					<Translations page='about' translation='title' />
 				</h1>
 				<h4>
-					<Translations page='about' translation='desc' />
+					<Translations page='about' translation='subtitle' />
 				</h4>
-				<div className="my-5 d-flex flex-column justify-content-between">
-					<div className="d-flex justify-content-start justify-content-lg-end">
-						<div className={cx(mainStyles.rotateAnim, "d-flex", "align-items-center", "flex-row-reverse", "flex-lg-row")} style={{ transitionDelay: '.2s, .2s' }}>
-							<span>
-								<Translations page='about' translation='card1' />
-							</span>
-							<img src="/img/studency.svg" className="mr-3 mr-lg-0 ml-lg-3" />
-						</div>
-					</div>
-					<div className="mt-3 d-flex justify-content-start">
-						<div className={cx(mainStyles.rotateAnim, "d-flex", "align-items-center")} style={{ transitionDelay: '.5s, .5s' }}>
-							<img src="/img/displaygame.svg" className="mr-3" />
-							<span>
-								<Translations page='about' translation='card2' />
-							</span>
-						</div>
-					</div>
-					<div className="mt-3 d-flex justify-content-start justify-content-lg-end">
-						<div className={cx(mainStyles.rotateAnim, "d-flex", "align-items-center", "flex-row-reverse", "flex-lg-row")} style={{ transitionDelay: '.8s, .8s' }}>
-							<span>
-								<Translations page='about' translation='card3' />
-							</span>
-							<img src="/img/code.svg" className="mr-3 mr-lg-0 ml-lg-3" />
-						</div>
-					</div>
+				<div ref={descRef} className={cx(styles.desc, "mt-4")}>
+					<p className={mainStyles.rotateAnim} style={{ transitionDelay: '.2s, .2s' }}>
+						<Translations page='about' translation='desc1' />
+					</p>
+					<p className={mainStyles.rotateAnim} style={{ transitionDelay: '.5s, .5s' }}>
+						<Translations page='about' translation='desc2' />
+					</p>
+					<p className={mainStyles.rotateAnim} style={{ transitionDelay: '.8s, .8s' }}>
+						<Translations page='about' translation='desc3' />
+					</p>
 				</div>
 			</div>
 			<div ref={skillsRef} className={cx(mainStyles.arrowLink, "d-flex", "justify-content-center", "mt-3", "text-center")}>

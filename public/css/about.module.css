@@ -4,3 +4,6 @@
 	margin: 0 auto;
 }
 
+.desc p {
+	margin-bottom: 0.7rem;
+}
