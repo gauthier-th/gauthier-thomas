@@ -65,8 +65,10 @@ const DropDown = ({ lang, langPrefix, history }) => {
 					key={l}
 					onClick={() => {
 						setIsOpen(false);
-						const newLangPrefix = l === defaultLang ? '' : '/' + l;
-						history.push(newLangPrefix + history.location.pathname.substr(langPrefix.length))
+						if (lang !== l) {
+							const newLangPrefix = l === defaultLang ? '' : '/' + l;
+							history.push(newLangPrefix + history.location.pathname.substr(langPrefix.length));
+						}
 					}}
 				>
 					<img src={translationContent(l, 'default', 'img')} />

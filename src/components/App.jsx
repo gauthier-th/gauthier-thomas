@@ -30,12 +30,13 @@ const Pages = ({ location }) => {
 			matchUrl = '';
 			pageLang = defaultLang;
 		}
+		const langPrefix = pageLang === defaultLang ? '' : '/' + pageLang;
 		return <Switch>
 			{Object.keys(pages).map(page => {
 				const Page = pages[page];
-				return <Route key={page} exact path={matchUrl + page} render={() => <Page lang={pageLang} langPrefix={'/' + pageLang} />} />
+				return <Route key={page} exact path={matchUrl + page} render={() => <Page lang={pageLang} langPrefix={langPrefix} />} />
 			})}
-			<Route render={() => <Page404 lang={pageLang} langPrefix={'/' + pageLang} />} />
+			<Route render={() => <Page404 lang={pageLang} langPrefix={langPrefix} />} />
 		</Switch>;
 	};
 	return <AnimatePresence>

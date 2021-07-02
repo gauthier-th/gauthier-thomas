@@ -56,8 +56,8 @@ const Skills = ({ lang, langPrefix }) => {
 				</h4>
 				<div className={cx(styles.skills, 'my-5')}>
 					{techs.map((tech, i) => (
-						<div className='d-flex justify-content-center align-items-center'>
-							<img key={i} className={styles.skill} src={tech} />
+						<div key={i} className='d-flex justify-content-center align-items-center'>
+							<img className={styles.skill} src={tech} />
 						</div>
 					))}
 				</div>
