@@ -6,6 +6,21 @@ import { langTranslations } from '../Translations';
 import styles from '../../../public/css/skills.module.css';
 import mainStyles from '../../../public/css/styles.module.css';
 
+const techs = [
+	'/img/skills/javascript.svg',
+	'/img/skills/typescript.svg',
+	'/img/skills/nodejs.svg',
+	'/img/skills/react.svg',
+	'/img/skills/nextjs.svg',
+	'/img/skills/php.svg',
+	'/img/skills/html.svg',
+	'/img/skills/css.svg',
+	'/img/skills/bootstrap.svg',
+	'/img/skills/jquery.svg',
+	'/img/skills/mysql.svg',
+	'/img/skills/websocket.svg'
+];
+
 const Skills = ({ lang, langPrefix }) => {
 	const portfolioRef = useRef(null);
 	const pageContent = useRef(null);
@@ -39,42 +54,12 @@ const Skills = ({ lang, langPrefix }) => {
 				<h4>
 					<Translations page='skills' translation='desc' />
 				</h4>
-				<div className="my-5 d-flex flex-column justify-content-between">
-					<div className={cx(styles.skill, styles.w90)} style={{ transitionDelay: '.4s, .4s' }}>
-						<div className={styles.name}>JavaScript</div>
-						<div className={styles.progress}></div>
-						<span>90%</span>
-					</div>
-					<div className={cx(styles.skill, styles.w70)} style={{ transitionDelay: '.6s, .6s' }}>
-						<div className={styles.name}>React</div>
-						<div className={styles.progress}></div>
-						<span>70%</span>
-					</div>
-					<div className={cx(styles.skill, styles.w90)} style={{ transitionDelay: '.8s, .8s' }}>
-						<div className={styles.name}>Node.js</div>
-						<div className={styles.progress}></div>
-						<span>90%</span>
-					</div>
-					<div className={cx(styles.skill, styles.w65)} style={{ transitionDelay: '1s, 1s' }}>
-						<div className={styles.name}>PHP</div>
-						<div className={styles.progress}></div>
-						<span>65%</span>
-					</div>
-					<div className={cx(styles.skill, styles.w95)} style={{ transitionDelay: '1.2s, 1.2s' }}>
-						<div className={styles.name}>HTML</div>
-						<div className={styles.progress}></div>
-						<span>95%</span>
-					</div>
-					<div className={cx(styles.skill, styles.w90)} style={{ transitionDelay: '1.4s, 1.4s' }}>
-						<div className={styles.name}>CSS</div>
-						<div className={styles.progress}></div>
-						<span>90%</span>
-					</div>
-					<div className={cx(styles.skill, styles.w80)} style={{ transitionDelay: '1.6s, 1.6s' }}>
-						<div className={styles.name}>Bootstrap</div>
-						<div className={styles.progress}></div>
-						<span>80%</span>
-					</div>
+				<div className={cx(styles.skills, 'my-5')}>
+					{techs.map((tech, i) => (
+						<div className='d-flex justify-content-center align-items-center'>
+							<img key={i} className={styles.skill} src={tech} />
+						</div>
+					))}
 				</div>
 			</div>
 			<div ref={contactRef} className={cx(mainStyles.arrowLink, "d-flex", "justify-content-center", "mt-3", "text-center")}>
