@@ -20,12 +20,17 @@ const translations = {
 			subtitle: 'I\'m a computer science student in engineering school at ESIREM who is passionate by programming and web development. ',
 			desc1: 'For several years now, programming has been my favorite hobby since I discovered web technologies. I first started with basic websites made with PHP, HTML and CSS, then I went deeper into JavaScript, JQuery and React.',
 			desc2: 'Over a year ago, I started freelance so that I could use my skills to work on other projects and gain even more experience. ',
-			desc3: 'I can develop a small classic showcase site (for instace for a store), a more complete website (forms, connection, mail sending, ...) but also to create real web applications with the latest technologies. You can see some examples of sites I made on the next page.',
+			desc3: 'I can develop a small classic showcase website (for instace for a store), a more complete website (forms, connection, mail sending, ...) but also to create real web applications with the latest technologies. You can see some examples of sites I made on the next page.',
 			portfolio: 'Portfolio'
 		},
 		portfolio: {
 			about: 'About me',
 			title: 'Portfolio',
+			image1: 'Login page',
+			image2: 'Personnal website',
+			image3: 'Customized form',
+			image4: 'Showcase website',
+			image5: 'Live tracking of a plotter',
 			skills: 'My skills'
 		},
 		skills: {
@@ -71,9 +76,14 @@ const translations = {
 			portfolio: 'Portfolio'
 		},
 		portfolio: {
-			about: 'About me',
+			about: 'À propos',
 			title: 'Portfolio',
-			skills: 'My skills'
+			image1: 'Page de connexion',
+			image2: 'Mon site personnel',
+			image3: 'Formulaire personnalisé',
+			image4: 'Site vitrine',
+			image5: 'Suivi d\'un traceur en direct',
+			skills: 'Mes compétences'
 		},
 		skills: {
 			portfolio: 'Portfolio',

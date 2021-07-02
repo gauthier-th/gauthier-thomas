@@ -3,3 +3,27 @@
 	min-height: calc(100vh - 150px - 10rem);
 	margin: 0 auto;
 }
+
+.carousel > :global(.carousel), .carousel img {
+	border-radius: 5px;
+}
+
+.carousel :global(.legend) {
+	bottom: 30px !important;
+	left: 50% !important;
+	margin-left: 0 !important;
+	width: auto !important;
+	border-radius: 3px !important;
+	padding: 4px 6px !important;
+	font-size: 14px !important;
+	opacity: 0.7 !important;
+	transform: translateX(-50%);
+}
+
+.carousel > :global(.carousel):hover  :global(.legend) {
+	opacity: 1 !important;
+}
+
+.selected {
+	cursor: pointer;
+}
