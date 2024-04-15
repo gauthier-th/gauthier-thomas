@@ -6,7 +6,7 @@ const translations = {
 	en: {
 		default: {
 			navbarContact: 'Contact',
-			img: 'https://twemoji.maxcdn.com/svg/1f1ec-1f1e7.svg'
+			img: 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.1.0/svg/1f1ec-1f1e7.svg'
 		},
 		home: {
 			title: 'Hi!',
@@ -58,7 +58,7 @@ const translations = {
 	fr: {
 		default: {
 			navbarContact: 'Contact',
-			img: 'https://twemoji.maxcdn.com/svg/1f1eb-1f1f7.svg'
+			img: 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/15.1.0/svg/1f1eb-1f1f7.svg'
 		},
 		home: {
 			title: 'Salut !',
