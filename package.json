@@ -26,29 +26,29 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
-    "css-loader": "^4.3.0",
-    "style-loader": "^2.0.0",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "css-loader": "^4.3.0",
     "framer-motion": "^2.9.5",
-    "helmet": "^4.1.1",
-    "morgan": "^1.10.0",
-    "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-accessible-dropdown-menu-hook": "^2.3.0",
     "react-dom": "^16.13.1",
     "react-responsive-carousel": "^3.2.19",
     "react-router-dom": "^5.2.0",
-    "redis": "^3.0.2",
     "redux": "^4.0.5",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "redis": "^3.0.2",
     "serve-favicon": "^2.5.0"
   }
 }

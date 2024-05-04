@@ -23,6 +23,6 @@ app.use(bodyParser.json());
 
 app.use(require('./root'));
 
-app.listen(process.env.PORT, () => {
-	console.log('Listening on port ' + process.env.PORT + '.');
+app.listen(process.env.PORT || 3000, () => {
+	console.log('Listening on port ' + (process.env.PORT || 3000) + '.');
 });

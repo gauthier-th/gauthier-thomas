@@ -1,0 +1,13 @@
+name: gauthier-thomas
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/usr/src/app/
+      - /usr/src/app/node_modules
+      - /usr/src/app/public/js
+    ports:
+      - ${PORT:-3000}:3000
+    environment:
+      - TZ=Europe/Paris
